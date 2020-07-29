@@ -2,6 +2,7 @@ from datetime import datetime
 from copy import deepcopy
 from .inputs import *
 
+
 def inserirInfoPaciente(paciente):
     return {
         "name": "Informações Básicas do Paciente",
@@ -12,14 +13,15 @@ def inserirInfoPaciente(paciente):
                 deepcopy(telefone).setValue(paciente.telefone)
             ],
             [
-                deepcopy(data_nasc).setValue(datetime.strftime(paciente.data_nasc, "%d/%m/%Y") if paciente.data_nasc is not None else ""),
+                deepcopy(data_nasc).setValue(
+                    datetime.strftime(paciente.data_nasc, "%d/%m/%Y") if paciente.data_nasc is not None else ""),
                 deepcopy(genero).setValue(paciente.id_genero),
                 deepcopy(etnia).setValue(paciente.id_etnia)
             ],
             deepcopy(endereco).setValue(paciente.endereco)
         ]
     }
-    
+
 
 tentativa = {
     "name": "Tentativa",
@@ -60,6 +62,7 @@ informacoesBasicas = {
 
 domicilio = {
     "name": "Domicílio",
+    "view": "vw_atendimentos_relacoes",
     "inputs": [
         mora_sozinho
     ]
